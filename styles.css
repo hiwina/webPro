@@ -1,0 +1,164 @@
+body {
+  font-family:Arial,Helvettica,sans-serif;
+  background-color:#ffffcc;
+}
+header {
+  margin-top:50px;
+   margin-bottom:15px;
+  width:80%;
+  background-color:#ffd700;
+  color:Black;
+  margin-right:auto;
+  margin-left:auto;
+  padding:10px;
+  overflow:hidden;
+}
+h1{
+
+  font-size:30px;
+  margine:0;
+  padding:0;
+  padding-top:10px;
+
+}
+h2{
+
+  font-size:1.6;
+
+}
+hgroup{
+
+  width:50%;
+  float:left;
+  
+}
+hgroup h1{
+
+  padding-top:0;
+  line-height:1em;
+  color:red;
+  font-family:  Times, "Times New Roman", Georgia, serif;
+
+
+}
+hgroup h2{
+
+  text-transform:uppercase;
+  font-size:.8em;
+  font-style:Helvettica;
+  line-height:1em;  
+  color:green;
+}
+nav{
+
+  width:35%;
+  float:right;
+  
+}
+nav ul{
+  line-height:normal;
+  padding:0px 0 0 20px;
+  margin-right:20px;
+  list-style-type:none;
+}
+
+nav li{
+
+  float:left;
+  margin-right:5px;
+  text-align: center;
+  display: inline;
+}
+nav a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #464E53;
+	
+}
+#loginform{
+  float:right;
+  margin-right:5px;
+  width:30%;
+  font-size:10px;
+}
+fieldset{
+	border:none;
+
+}
+section {
+
+  width:80%;
+  height:600px;
+  background-color:white;
+  margin-right:auto;
+  margin-left:auto;
+  border-color:#ffb269;
+  border-style:solid;
+  border-width:0.5px;
+  padding:5px;
+ 
+}
+
+
+div.img {
+	
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ffb269;
+    height: auto;
+    width: auto;
+    float: left;
+    text-align: center;
+	
+}	
+
+div.img img {
+    display: inline;
+    margin: 5px;
+    border: 1px solid #ffffff;
+}
+
+div.img a:hover img {
+    border: 1px solid #3399ff;
+}
+
+div.desc {
+  text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 5px;
+  }
+ .search{
+  width:250px;
+  height:540px;
+  float:left;
+  margin:10px;
+  border-width:1px;
+  border-color:none;
+  border-style:none;
+  color:red;
+  font-family: cursive;
+  position:relative;
+  background-color:#ffffcc;
+  top:10px;
+  left:2px;
+  z-index:1;
+   
+  
+}
+footer {
+
+  width:80%;
+  background-color:black;
+  color:white;
+  margin-right:auto;
+  margin-left:auto;
+  height:50px;
+  padding:10px;
+
+}
