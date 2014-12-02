@@ -1,9 +1,36 @@
+<?php
+
+	include "sqlConnection.php";
+	$sql = "SELECT * FROM Toys ";
+	
+	
+	if(isset($_POST['submit'])) {
+	
+		$result= mysql_real_escape_string($_POST['age']);
+		$sql .="WHERE age='{result}'";
+	
+	}
+	if(isset($_POST['submit'])) {
+	
+		$result= mysql_real_escape_string($_POST['toy_name']);
+		$sql .="WHERE token_name='{result}'";
+	
+	}
+	
+	
+	$query=mysql_query($sql) or die(mysql_query());
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <script src="https://apis.google.com/js/client:platform.js" async defer></script>
-  <script type="text/javascript" src="autho1.js"></script>
+  <script type="text/javascript" src="autho.js"></script>
   
   <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
   <title>ToyNet</title>
@@ -35,8 +62,7 @@
 	</form>
 	<form>
 	<p>
-	<button onclick="checkAuth()">
-	<span id="signinButton">
+	<a href=""><span id="signinButton">
 	<span 
     class="g-signin"
     data-callback="signinCallback"
@@ -45,8 +71,7 @@
     data-requestvisibleactions="http://schema.org/AddAction"
     data-scope="https://www.googleapis.com/auth/plus.login">
   </span>
-</span>
-	</button>
+</span></a>
 	</p></form>
 
 
@@ -57,7 +82,8 @@
   <div class="search">
     <h3>Browse Toys</h3>
 	<form action="index.php" method="post">
-   <p>Age</p>   
+   <p>Age</p> 
+	<form name="age" action="index.php" method="post">
     <select name="age">
       <option value="0-6month">Newborn-6 Months</option>
       <option value="6-12month" selected >6 Months-1 Year</option>
@@ -66,9 +92,12 @@
       <option value="3-4years">3-4 Years</option>  
       <option value="4+years">4+ Years</option> 
      </select>
+	 </form>
+	 
 	   
     <p>Catagory
-      <select name="category">
+	  <form name="toy_name" action="index.php" method="post">
+      <select name="toy_name">
         <option value="Balls">Balls</option>
         <option value="Building sets and blocks" selected >Building sets and blocks</option>
         <option value="Crib Toys">Crib Toys</option>  
@@ -76,6 +105,7 @@
         <option value="Wooden Toys">Wooden Toys</option>  
         <option value="Vehicles">Vehicles</option>  
       </select>
+	  </form>
 	</p>
 	Location
 	<p>Country
@@ -106,54 +136,28 @@
   
   
   </div>
-  <div class="img">
- <a target="_blank" href=""><img src="toy01.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href=""><img src="showImg.php?id='$id_toy'" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis3_big.htm"><img src="toy03.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis4_big.htm"><img src="toy04.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis4_big.htm"><img src="toy05.jpg" alt="Klematis" width="110" height="90"></a>
- <div class= "desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis4_big.htm"><img src="toy06.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis4_big.htm"><img src="toy07.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis4_big.htm"><img src="toy08.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis_big.htm"><img src="toy01.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis2_big.htm"><img src="toy02.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis3_big.htm"><img src="toy03.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
-<div class="img">
- <a target="_blank" href="klematis4_big.htm"><img src="toy04.jpg" alt="Klematis" width="110" height="90"></a>
- <div class="desc">Add a description of the image here</div>
-</div>
+
+
+
+
+<?php 
+	if(isset($_POST['submit'])) {
+	while ($row=mysql_fetch_array($query)) { ?>
+	 
+
+	<div class="img">
+	 <a target="_blank" href="klematis_big.htm"><img src="showImg.php " alt="check" width="110" height="90"><?php echo $row['image']; ?></a>
+	 <div class="desc"><?php echo $row['price']; ?></div>
+	</div>
+	
+	
+	
+	
+
+	
+<?php }}?>
+
+
 
 </section>
 <footer>
